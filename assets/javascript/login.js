@@ -7,7 +7,9 @@ $("#google-signIn").on("click", function (event) {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log("userName :"+user);
+        window.location.href="home.html";
+        console.log("google userName :"+user);
+       
         // ...
       }).catch(function(error) {
         // Handle Errors here.
@@ -32,7 +34,7 @@ firebase.auth().signOut().then(function() {
 $("#user-login").on("click", function (event) {
 //alert("test");
 var userName=$("username").val().trim();
-console.log(username);
+console.log("username:"+username);
 var password=$("password").val().trim();
 console.log(password);
 firebase.auth().signInWithEmailAndPassword(username, password).catch(function(error) {
@@ -49,7 +51,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     //alert("signedin");
     var user = firebase.auth().currentUser;
     if(user!=null){
-      window.location("home.html");
+      window.location.href="home.html";
       console.log(user.email);
     }
   } else {
