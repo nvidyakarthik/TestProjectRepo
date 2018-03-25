@@ -33,6 +33,7 @@ firebase.auth().signOut().then(function() {
 
 $("#user-login").on("click", function (event) {
 //alert("test");
+event.preventDefault();
 var userName=$("username").val().trim();
 console.log("username:"+username);
 var password=$("password").val().trim();
