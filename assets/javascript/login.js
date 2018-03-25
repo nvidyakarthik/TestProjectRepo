@@ -48,7 +48,7 @@ console.log(password);
      var errorMessage = error.message;
      window.location.replace("index.html"); //Send user to homepage
    }) */
-firebase.auth().signInWithEmailAndPassword(username, password).
+firebase.auth().signInWithEmailAndPassword(email, password).
 then(function(user){
   window.location.href="home.html";
   
