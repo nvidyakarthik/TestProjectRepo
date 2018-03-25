@@ -38,7 +38,22 @@ var userName=$("username").val().trim();
 console.log("username:"+username);
 var password=$("password").val().trim();
 console.log(password);
-firebase.auth().signInWithEmailAndPassword(username, password).catch(function(error) {
+   //Create user with password
+   /* firebase
+   .auth()
+   .createUserWithEmailAndPassword(email, password)
+   .catch(function(error) {
+     // Handle Errors here.
+     var errorCode = error.code;
+     var errorMessage = error.message;
+     window.location.replace("index.html"); //Send user to homepage
+   }) */
+firebase.auth().signInWithEmailAndPassword(username, password).
+then(function(user){
+  window.location.href="home.html";
+  
+
+}).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -52,7 +67,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     //alert("signedin");
     var user = firebase.auth().currentUser;
     if(user!=null){
-      window.location.href="home.html";
+      
       console.log(user.email);
     }
   } else {
